@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace SistemaCadastroStreaming
 {
@@ -46,6 +47,47 @@ namespace SistemaCadastroStreaming
             foreach(var usuario in Usuarios)
             {
                 usuario.ExibirInformacao();
+            }
+        }
+
+        //Filmes
+        public List<Filme> Filmes = new List<Filme>();
+      
+        public void AdicionarFilme(int quantidade)
+        {
+            
+            Console.WriteLine("-- Cadastro de Filme --");
+
+            int i = 1;
+
+            while (i <= quantidade)
+            {
+                Filme filme = new Filme();
+
+                Console.WriteLine("Insira o nome do Filme: ");
+                filme.Nome = Console.ReadLine();
+
+
+                Console.WriteLine("Insira o gênero: ");
+                filme.Genero = Console.ReadLine();
+
+                Console.WriteLine("Insira o ano de Lançamento: ");
+                filme.AnoLancamento = Convert.ToInt32(Console.ReadLine());
+
+                Filmes.Add(filme);
+
+                Console.WriteLine("--");
+
+                i++;
+            }
+
+        }
+
+        public void ListarFilmes()
+        {
+            foreach (var filme in Filmes)
+            {
+                Console.WriteLine($"Filme Cadastrado - {filme.Nome}");
             }
         }
     }
